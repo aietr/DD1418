@@ -105,29 +105,29 @@ def align(s0, s1, backptr):
 
     r0,r1 = '',''
 
-    # Start in the bottom-right cell = the full strings
+    # Start in the bottom right cell
     i, j = len(s0), len(s1)
 
-    # Keep following arrows until we reach the empty-string corner
+    # Keep following arrows until we reach the top left
     while (i, j) != (0, 0):
-        pi, pj = backptr[i][j]          # where did this cell come from?
+        pi, pj = backptr[i][j] 
 
         if pi == i - 1 and pj == j - 1:
-            # Diagonal: one character from each string, paired together
+            # Diagonal
             r0 += s0[i-1]
             r1 += s1[j-1]
         elif pi == i - 1:
-            # Up: a character from s0, paired with a gap
+            # Up
             r0 += s0[i-1]
             r1 += ' '
         else:
-            # Left: a gap, paired with a character from s1
+            # Left
             r0 += ' '
             r1 += s1[j-1]
 
-        i, j = pi, pj                   # move to that cell
+        i, j = pi, pj               
 
-    # We collected characters from the end towards the start, so flip them
+    # flip the order
     return (r0[::-1], r1[::-1])
 
 
