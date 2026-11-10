@@ -1,0 +1,3 @@
+c:\GitHub\LanguageEngineering\solutions\a02>python BigramTester.py -f small_model_correct.txt -t data\kafka.txt
+Read 24652 words. Estimated entropy: 13.46
+
